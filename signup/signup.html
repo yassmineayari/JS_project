@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-form">
+      <h2>Signup Form</h2>
+  <form id="signupForm" action="signup.php" method="POST">
+    <input type="text" id="username" name="username" placeholder="User name" required />
+    <input type="password" id="password" name="password" placeholder="Password" required />
+    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+    <button type="submit">Create</button>
+    <p id="message" class="message"></p>
+    <a href="../login/login.html">I already have an account</a>
+  </form>
+    </div>
+    <div class="signup-image"></div>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+        e.preventDefault(); 
+        
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const message = document.getElementById("message");
+
+        if (password !== confirmPassword) {
+          message.style.color = "red";
+          message.textContent = "verify the password !";
+        } else {
+          message.style.color = '#453734';
+          message.textContent = "Created success!";
+          this.submit();
+        }
+    });
+  </script>
+
+</body>
+</html>

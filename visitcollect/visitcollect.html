@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance House</title>
+  <link rel="stylesheet" href="visitcollect.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Elegance House</div>
+        <ul class="nav-links">
+          <li><a href="../home/homevisit.html">Accueil</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="dropdown">
+            <a href="../visitcollect/visitcollect.html">Have an eye</a>
+         
+          </li>
+          <li class="accounticon" id="account-area">
+            <a href="../login/login.html">
+              <img src="../hijabi/account.png" alt="Account">
+              <span class="username-login">LogIn</span>
+            </a>
+          </li>
+    
+        </ul>
+    </nav>
+    
+  </nav>
+
+      <section id="collections" class="eye-section">
+        <h2> Women Collections</h2>
+        <div class="collections-grid">
+          <div class="collection-item">
+            <img src="../hijabi/forth.jpg" alt="Collection 1">
+            <p>Silk Elegance</p>
+          </div>
+          <div class="collection-item">
+            <img src="../no-hijabi/3.jpg" alt="Collection 2">
+            <p>Modern Classic</p>
+          </div>
+          <div class="collection-item">
+            <video src="../visitcollect/video2.mp4" alt="Collection 3" class="videooo" autoplay muted loop playsinline ></video>
+            <p>Chic Minimal</p>
+          </div>
+          <div class="collection-item">
+            <img src="../hijabi/3.jpg" alt="Collection 1">
+            <p>Silk Elegance</p>
+          </div>
+          <div class="collection-item">
+            <img src="../no-hijabi/1.jpg" alt="Collection 2">
+            <p>Modern Classic</p>
+          </div>
+          <div class="collection-item">
+            <video src="../visitcollect/video3.mp4" alt="Collection 3" class="videooo" autoplay muted loop playsinline ></video>
+            <p>Chic Minimal</p>
+          </div>
+        </div>
+        <h2> Men Collections</h2>
+
+        <div class="collections-grid">
+            <div class="collection-item">
+              <img src="../men/1.jpg" alt="Collection 1">
+              <p>Silk Elegance</p>
+            </div>
+            <div class="collection-item">
+                <video src="../men/video6.mp4" alt="Collection 2" class="videooo" autoplay muted loop playsinline ></video>
+              <p>Modern Classic</p>
+            </div>
+            <div class="collection-item">
+                <img src="../men/2.jpg" alt="Collection 3">
+                <p>Chic Minimal</p>
+            </div>
+            <div class="collection-item">
+                <img src="../men/3.jpg" alt="Collection 1">
+                <p>Silk Elegance</p>
+              </div>
+              <div class="collection-item">
+                <img src="../men/4.jpg" alt="Collection 2">
+                <p>Modern Classic</p>
+              </div>
+              <div class="collection-item">
+                <video src="../men/video4.mp4" alt="Collection 3" class="videooo" autoplay muted loop playsinline ></video>
+                <p>Chic Minimal</p>
+              </div>
+            
+          </div>
+
+
+
+          <h2> Couple Collections</h2>
+
+          <div class="collections-grid">
+              <div class="collection-item">
+                <img src="../couples/1.jpg" alt="Collection 1">
+                <p>Silk Elegance</p>
+              </div>
+              <div class="collection-item">
+                <img src="../couples/4.png" alt="Collection 1">
+                <p>Modern Classic</p>
+              </div>
+              <div class="collection-item">
+                  <img src="../couples/2.jpg" alt="Collection 3">
+                  <p>Chic Minimal</p>
+              </div>
+              <div class="collection-item">
+                <video src="../couples/video5.mp4" alt="Collection 2" class="videooo" autoplay muted loop playsinline ></video>
+                  <p>Silk Elegance</p>
+                </div>
+                <div class="collection-item">
+                  <img src="../couples/3.jpg" alt="Collection 2">
+                  <p>Modern Classic</p>
+                </div>
+                <div class="collection-item">
+                    <img src="../couples/4.jpg" alt="Collection 2">
+
+                  <p>Chic Minimal</p>
+                </div>
+              
+            </div>
+      <h2 class="logii">Log in to immerse yourself in the world of elegance — place orders and discover exquisite details</h2>
+
+    </section>
+
+  
+
+  
+  <script>
+  
+    const username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("username-display").textContent = ` ${username}`;
+    }
+  </script>
+  
+
+
+
+</body>
+</html>

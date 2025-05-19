@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance House</title>
+  <link rel="stylesheet" href="../no-hijabi/no-hijabi.css" />
+  
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Elegance House</div>
+        <ul class="nav-links">
+          <li><a href="../home/home.html">Accueil</a></li>
+          <li><a href="#">About</a></li>
+          <li class="dropdown">
+            <a href="#">Collections</a>
+            <ul class="dropdown-menu">
+              <li><a href="../women/women.html">Women</a></li>
+              <li><a href="men.html">Men</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+            </ul>
+          </li>
+          <li class="cart-icon">
+            <a href="#">
+              <img src="../hijabi/cart.png" alt="Cart" class="tot" />
+              <span class="cart-count" id="cart-count">0</span>
+            </a>
+          </li>
+          <li class="accounticon" id="account-area">
+            <a href="../account/account.html">
+              <img src="../hijabi/account.png" alt="Account">
+              <span id="username-display" class="username-display"></span>
+            </a>
+          </li>
+          
+          <li class="accounticon">
+            <a href="../login/login.html">
+              <img src="../account/déconnecter.png" alt="Cart" class="tot" />
+            </a>
+          </li>
+      </ul>
+      </nav>
+      
+
+      <header class="hero">
+        <div class="overlay"></div>
+        <video autoplay muted loop class="background-video">
+          <source src="./video.mp4" type="video/mp4">
+        </video>
+      
+        <div class="hero-content">
+          <h1>No Hijabi Girl</h1>
+        </div>
+      </header>
+      
+
+      <section class="product-gallery" id="cardsContainer">
+        <div class="product-card">
+          <img src="../no-hijabi/1.jpg" alt="Product 1" onclick="openModal(0)">
+          <h3>Set Miranda</h3>
+          <p>230 TND</p>
+          <button onclick="openModal(0)" class="add-to-cart">View Details</button>
+        </div>
+      
+        <div class="product-card">
+          <img src="../no-hijabi/2.jpg" alt="Product 2" onclick="openModal(1)">
+          <h3>Hijab Style 2</h3>
+          <p>280 TND</p>
+          <button onclick="openModal(1)" class="add-to-cart">View Details</button>
+        </div>
+      
+        <div class="product-card">
+          <img src="../no-hijabi/3.1.jpg" alt="Product 3" onclick="openModal(2)">
+          <h3>Hijab Style 3</h3>
+          <p>$28.00</p>
+          <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+        </div>
+      </section>
+      
+      
+
+      <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <img id="modalImage" src="" alt="Modal Image">
+      
+          <div class="product-options" id="productOptions">
+            <label for="sizeSelect">Size:</label>
+            <select id="sizeSelect">
+              <option value="">Select Size</option>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+            </select>
+      
+            <label for="colorSelect">Color:</label>
+            <select id="colorSelect">
+              <option value="">Select Color</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Beige">Beige</option>
+            </select>
+      
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+      
+          <div class="modal-nav">
+            <button onclick="prevImage()">&#10094;</button>
+            <button onclick="nextImage()">&#10095;</button>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      
+
+
+
+
+      <script>
+        const productsImages = [
+          ["../no-hijabi/1.jpg", "../no-hijabi/1.1.jpg"],
+          ["../no-hijabi/2.jpg", "../no-hijabi/2.1.jpg", "../no-hijabi/2.2.jpg"],
+          ["../no-hijabi/3.1.jpg", "../no-hijabi/3.jpg", "../no-hijabi/3.2.jpg"]
+          ];
+    
+        let currentImages = [];
+        let currentIndex = 0;
+    
+        function openModal(productIndex) {
+          currentImages = productsImages[productIndex];
+          currentIndex = 0;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+          document.getElementById("imageModal").style.display = "flex";
+        }
+    
+        function closeModal() {
+          document.getElementById("imageModal").style.display = "none";
+        }
+    
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % currentImages.length;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+        }
+    
+        function prevImage() {
+          currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+        }
+
+        let cartCount =  0;
+        document.getElementById("cart-count").textContent = cartCount;
+        
+        function addToCart() {
+          const size = document.getElementById("sizeSelect").value;
+          const color = document.getElementById("colorSelect").value;
+        
+          if (!size || !color) {
+            alert("Please select both size and color.");
+            return;
+          }
+        
+          cartCount++;
+          localStorage.setItem("cartCount", cartCount);
+          document.getElementById("cart-count").textContent = cartCount;
+        
+          alert(`Added to cart:\nSize: ${size}\nColor: ${color}`);
+          closeModal(); 
+        }
+
+    const username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("username-display").textContent = ` ${username}`;
+    }
+
+
+        
+
+      </script>
+
+
+
+      
+</body>
+</html>

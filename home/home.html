@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance House</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Elegance House</div>
+    <ul class="nav-links">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="dropdown">
+        <a href="#">Collections</a>
+        <ul class="dropdown-menu">
+          <li><a href="../women/women.html">Women</a></li>
+          <li><a href="../men/men.html">Men</a></li>
+          <li><a href="../accessories.html">Accessories</a></li>
+        </ul>
+      </li>
+      <li class="cart-icon">
+        <a href="../order/data.php">
+          <img src="../hijabi/cart.png" alt="Cart" class="tot" />
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </li>
+      <li class="accounticon dropdown-user">
+        <a href="#">
+          <img src="../hijabi/account.png" alt="Account">
+          <span id="username-display" class="username-display">Nom d'utilisateur</span>
+        </a>
+        <ul class="dropdown-user-menu">
+          <li><a href="../account/settings.html">Paramètre</a></li>
+          <li><a href="../home/homevisit.html" id="logoutBtn">Déconnecter</a></li>
+        </ul>
+      </li>
+
+    </ul>
+</nav>
+
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to The Elegance House</h1>
+      <p>Elegance at the peak of luxury</p>
+      <img src="../home/set.png" alt="" class="imaage1">
+      <a href="#collections" class="btn">Discover</a>
+    </div>
+  </header>
+
+  <section class="collections" id="collections">
+    <h2>Our Collections</h2>
+    <div class="collection-grid">
+  
+      <a href="../women/women.html" class="card">
+        <img src="../home/women.jpg" alt="Women">
+        <h3>Women</h3>
+      </a>
+  
+      <a href="../men/men.html" class="card">
+        <img src="../home/men.jpg" alt="Men">
+        <h3>Men</h3>
+      </a>
+  
+      <a href="../accessorie/accessories.html" class="card">
+        <img src="../home/accessories.jpg" alt="Accessories">
+        <h3>Accessories</h3>
+      </a>
+  
+    </div>
+  </section>
+
+  <section id="about" class="collections">
+    <h2>About Us</h2>
+
+    <p class="about">Elegance House is a refined online destination dedicated to showcasing luxury fashion and high-end accessories for both men and women. Blending timeless style with modern sophistication, our website offers an exclusive selection of premium clothing, handcrafted accessories, and iconic designer pieces. With a focus on elegance, quality, and detail, Elegance House redefines digital luxury shopping by delivering an immersive experience that reflects the essence of prestige and taste. Whether you're seeking statement fashion or subtle sophistication, Elegance House is where elegance finds its true home.</p>
+
+
+  </section>
+
+
+
+  <section class="video-section">
+    <div class="video-container">
+      <video src="video1.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      <h3>Elegance House</h3>
+      <p>Where timeless style meets modern elegance.</p>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Elegance House. All rights reserved.</p>
+    </div>
+  </footer>
+
+  
+
+
+
+
+  <script>
+
+    localStorage.setItem("username", "Yassmine"); // Exemple
+
+    // Récupérer le nom d'utilisateur depuis localStorage
+    const username = localStorage.getItem("username");
+    const usernameDisplay = document.getElementById("username-display");
+
+    if (username) {
+      usernameDisplay.textContent = username;
+    }
+
+    // Déconnexion : supprimer l'utilisateur stocké et retourner à login
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("username");
+      window.location.href = "../login/login.html";
+    });
+  </script>
+  
+
+
+</body>
+</html>

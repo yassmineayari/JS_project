@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<form action="save_order.php" method="POST">
+  <input type="text" name="name" placeholder="Nom du produit" required>
+  <input type="number" name="price" placeholder="Prix" required>
+  <button type="submit">Ajouter au panier</button>
+</form>
+
+
+<script>
+
+
+    function addToCart() {
+  const name = document.querySelector('#modalProductName').textContent.trim();
+  const priceText = document.querySelector('#modalProductPrice').textContent.trim();
+  const price = parseInt(priceText);
+
+  fetch('save_order.php', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: `name=${encodeURIComponent(name)}&price=${price}`
+  })
+  .then(response => response.text())
+  .then(data => alert(data))
+  .catch(error => alert('Erreur : ' + error));
+}
+
+</script>
+
+
+    
+</body>
+</html>

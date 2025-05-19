@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance House</title>
+  <link rel="stylesheet" href="jeans.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Elegance House</div>
+    <ul class="nav-links">
+      <li><a href="../home/home.html">Accueil</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="dropdown">
+        <a href="#">Collections</a>
+        <ul class="dropdown-menu">
+          <li><a href="../women/women.html">Women</a></li>
+          <li><a href="../men/men.html">Men</a></li>
+          <li><a href="../accessories.html">Accessories</a></li>
+        </ul>
+      </li>
+      <li class="cart-icon">
+        <a href="#">
+          <img src="../hijabi/cart.png" alt="Cart" class="tot" />
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </li>
+      <li class="accounticon dropdown-user">
+        <a href="#">
+          <img src="../hijabi/account.png" alt="Account">
+          <span id="username-display" class="username-display">Nom d'utilisateur</span>
+        </a>
+        <ul class="dropdown-user-menu">
+          <li><a href="../account/settings.html">Paramètre</a></li>
+          <li><a href="../home/homevisit.html">Déconnecter</a></li>
+        </ul>
+      </li>
+
+    </ul>
+</nav>
+      
+
+      <header class="hero">
+        <div class="overlay"></div>
+        <video autoplay muted loop class="background-video">
+          <source src="./video.mp4" type="video/mp4">
+        </video>
+      
+        <div class="hero-content">
+          <h1>Men Jeans</h1>
+        </div>
+      </header>
+      
+
+      <section class="product-gallery" id="cardsContainer">
+        <div class="product-card">
+          <img src="../men/jeans.jpg" alt="Product 1" onclick="openModal(0)">
+          <h3> Style 1</h3>
+          <p>80 TND</p>
+          <button onclick="openModal(0)" class="add-to-cart">View Details</button>
+        </div>
+      
+        <div class="product-card">
+          <img src="../men/jeans1.jpg" alt="Product 2" onclick="openModal(1)">
+          <h3>Style 2</h3>
+          <p>120 TND</p>
+          <button onclick="openModal(1)" class="add-to-cart">View Details</button>
+        </div>
+      
+        <div class="product-card">
+          <img src="../men/jeans2.jpg" alt="Product 3" onclick="openModal(2)">
+          <h3>Style 3</h3>
+          <p>110 TND</p>
+          <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+        </div>
+        <div class="product-card">
+          <img src="../men/jeans3.jpg" alt="Product 3" onclick="openModal(2)">
+          <h3>Style 4</h3>
+          <p>100 TND</p>
+          <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+        </div>
+      </section>
+       <section class="product-gallery" id="cardsContainer">
+      
+
+          <div class="product-card">
+            <img src="../men/jeans4.jpg" alt="Product 3" onclick="openModal(2)">
+            <h3>Style 5</h3>
+            <p>120 TND</p>
+            <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+          </div>
+          <div class="product-card">
+            <img src="../men/jeans5.jpg" alt="Product 3" onclick="openModal(2)">
+            <h3>Style 6</h3>
+            <p>90 TND</p>
+            <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+          </div>
+          <div class="product-card">
+            <img src="../men/jeans6.jpg" alt="Product 3" onclick="openModal(2)">
+            <h3>Style 7</h3>
+            <p>100 TND</p>
+            <button onclick="openModal(2)" class="add-to-cart">View Details</button>
+          </div>
+
+
+      </section>
+      
+      
+
+      <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <img id="modalImage" src="" alt="Modal Image">
+      
+          <div class="product-options" id="productOptions">
+            <label for="sizeSelect">Size:</label>
+            <select id="sizeSelect">
+              <option value="">Select Size</option>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+            </select>
+      
+            <label for="colorSelect">Color:</label>
+            <select id="colorSelect">
+              <option value="">Select Color</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Beige">Beige</option>
+            </select>
+      
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+      
+          <div class="modal-nav">
+            <button onclick="prevImage()">&#10094;</button>
+            <button onclick="nextImage()">&#10095;</button>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      
+
+
+
+
+      <script>
+        const productsImages = [
+          ["../men/jeans.jpg"],
+          ["../hijabi/second2.jpg", "../hijabi/second.jpg", "../hijabi/second1.jpg"],
+          ["../hijabi/fifth.jpg", "../hijabi/fifth2.jpg"]
+          ];
+    
+        let currentImages = [];
+        let currentIndex = 0;
+    
+        function openModal(productIndex) {
+          currentImages = productsImages[productIndex];
+          currentIndex = 0;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+          document.getElementById("imageModal").style.display = "flex";
+        }
+    
+        function closeModal() {
+          document.getElementById("imageModal").style.display = "none";
+        }
+    
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % currentImages.length;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+        }
+    
+        function prevImage() {
+          currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+          document.getElementById("modalImage").src = currentImages[currentIndex];
+        }
+
+        let cartCount =  0;
+        document.getElementById("cart-count").textContent = cartCount;
+        
+        function addToCart() {
+          const size = document.getElementById("sizeSelect").value;
+          const color = document.getElementById("colorSelect").value;
+        
+          if (!size || !color) {
+            alert("Please select both size and color.");
+            return;
+          }
+        
+          cartCount++;
+          localStorage.setItem("cartCount", cartCount);
+          document.getElementById("cart-count").textContent = cartCount;
+        
+          alert(`Added to cart:\nSize: ${size}\nColor: ${color}`);
+          closeModal(); 
+        }
+  
+    const username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("username-display").textContent = ` ${username}`;
+    }
+  
+
+        
+
+      </script>
+
+
+
+      
+</body>
+</html>

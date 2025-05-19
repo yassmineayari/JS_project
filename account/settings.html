@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Account</title>
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Elegance House</div>
+  <ul class="nav-links">
+    <li><a href="../home/home.html">Accueil</a></li>
+    <li><a href="#about">About</a></li>
+    <li class="dropdown">
+      <a href="#">Collections</a>
+      <ul class="dropdown-menu">
+        <li><a href="../women/women.html">Women</a></li>
+        <li><a href="../men/men.html">Men</a></li>
+        <li><a href="../accessories.html">Accessories</a></li>
+      </ul>
+    </li>
+    <li class="cart-icon">
+      <a href="#">
+        <img src="../hijabi/cart.png" alt="Cart" class="tot" />
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </li>
+    <li class="accounticon dropdown-user">
+      <a href="#">
+        <img src="../hijabi/account.png" alt="Account">
+        <span id="username-display" class="username-display">Nom d'utilisateur</span>
+      </a>
+      <ul class="dropdown-user-menu">
+        <li><a href="../account/settings.html">Paramètre</a></li>
+        <li><a href="../home/homevisit.html">Déconnecter</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="account-container">
+  <h1>Settings Account</h1>
+  <div class="info-box">
+    <p><strong>Username :</strong> <span id="username"></span></p>
+    <button onclick="editUsername()">Edit your username</button>
+    <hr>
+    <a href="../historique/achat.html" class="action-link">🕓 Check your buying historique</a><br>
+    <a href="../home/homevisit.html" class="action-link">🚪 Log Out</a>
+  </div>
+</div>
+
+<script>
+  const username = localStorage.getItem("username");
+  document.getElementById("username").textContent = username || "Inconnu";
+
+  function editUsername() {
+    const newUsername = prompt("Entrez le nouveau nom d'utilisateur :", username);
+    if (newUsername) {
+      localStorage.setItem("username", newUsername);
+      document.getElementById("username").textContent = newUsername;
+      document.getElementById("username-display").textContent = newUsername;
+      alert("Nom d'utilisateur mis à jour !");
+    }
+  }
+
+  document.getElementById("username-display").textContent = username || "Nom d'utilisateur";
+</script>
+
+</body>
+</html>

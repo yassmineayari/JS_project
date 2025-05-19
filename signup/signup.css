@@ -1,0 +1,106 @@
+body {
+    font-family:  serif;
+    background: #f2e9d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .signup-container {
+    display: flex;
+    width: 850px;
+    height: 470px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  
+  .signup-image {
+    width: 40%;
+    height: 100%;
+    background-image: url('../signup/flower.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: zoomInOut 5s infinite ease-in-out; 
+  }
+  
+  @keyframes zoomInOut {
+    0% {
+      background-size: 100%; 
+    }
+    50% {
+      background-size: 150%; 
+    }
+    100% {
+      background-size: 100%; 
+    }
+  }
+  
+  
+  
+  .signup-form {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .signup-form h2 {
+    text-align: center;
+    color: #e1c59c;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-form input[type="text"],
+  .signup-form input[type="password"] {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .signup-form button {
+    width: 70%;
+    height: 20%;
+    margin-left: 10%;
+    padding: 12px;
+    background-color: #bc9683;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 14px;
+    margin-top: 10px;
+  }
+  
+  .signup-form button:hover {
+    background-color: #f2e9d5;
+    color: #bc9683;
+    font-size: 18px;
+  }
+  
+  .signup-form a {
+    text-align: center;
+    color: #453734;
+    font-size: 15px;
+    margin-left: 30%;
+    text-decoration: none;
+  }
+  .signup-form a:hover {
+    text-decoration: underline;
+  }
+  
+  .signup-form p{
+    text-align: center;
+    font-size: 15px;
+    margin-left: -10%;
+    margin-top: 10px;
+  }

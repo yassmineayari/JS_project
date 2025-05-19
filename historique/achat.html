@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Account</title>
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Elegance House</div>
+  <ul class="nav-links">
+    <li><a href="../home/home.html">Accueil</a></li>
+    <li><a href="#about">About</a></li>
+    <li class="dropdown">
+      <a href="#">Collections</a>
+      <ul class="dropdown-menu">
+        <li><a href="../women/women.html">Women</a></li>
+        <li><a href="../men/men.html">Men</a></li>
+        <li><a href="../accessories.html">Accessories</a></li>
+      </ul>
+    </li>
+    <li class="cart-icon">
+      <a href="#">
+        <img src="../hijabi/cart.png" alt="Cart" class="tot" />
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </li>
+    <li class="accounticon dropdown-user">
+      <a href="#">
+        <img src="../hijabi/account.png" alt="Account">
+        <span id="username-display" class="username-display">Nom d'utilisateur</span>
+      </a>
+      <ul class="dropdown-user-menu">
+        <li><a href="../account/settings.html">Paramètre</a></li>
+        <li><a href="../home/homevisit.html">Déconnecter</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Historique d'Achat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="achat.css">
+</head>
+<body>
+
+  <div class="purchase-history">
+    <h2>Historique d'Achat</h2>
+
+    <div class="history-card">
+      <div class="history-info">
+        <h3>Commande #12345</h3>
+        <p>Date : 05 mai 2025</p>
+        <p>Total : 450 TND</p>
+      </div>
+      <div class="history-status">Livrée</div>
+    </div>
+
+    <div class="history-card">
+      <div class="history-info">
+        <h3>Commande #12344</h3>
+        <p>Date : 28 avril 2025</p>
+        <p>Total : 54,00 TND</p>
+      </div>
+      <div class="history-status cancelled">Annulée</div>
+    </div>
+
+    <div class="history-card">
+      <div class="history-info">
+        <h3>Commande #12343</h3>
+        <p>Date : 20 avril 2025</p>
+        <p>Total : 320 TND</p>
+      </div>
+      <div class="history-status processing">En cours</div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+<script>
+  const username = localStorage.getItem("username");
+  document.getElementById("username").textContent = username || "Inconnu";
+
+  function editUsername() {
+    const newUsername = prompt("Entrez le nouveau nom d'utilisateur :", username);
+    if (newUsername) {
+      localStorage.setItem("username", newUsername);
+      document.getElementById("username").textContent = newUsername;
+      document.getElementById("username-display").textContent = newUsername;
+      alert("Nom d'utilisateur mis à jour !");
+    }
+  }
+
+  document.getElementById("username-display").textContent = username || "Nom d'utilisateur";
+</script>
+</body>
+</html>
